@@ -6,96 +6,62 @@ using Microsoft.VisualStudio.Shell.Interop;
 
 namespace VsixToolWindowAsyncPackageExample
 {
-    /// <summary>
-    /// Command handler
-    /// </summary>
     internal sealed class ToolWindow1Command
     {
-        /// <summary>
-        /// Command ID.
-        /// </summary>
         public const int CommandId = 0x0100;
-
-        /// <summary>
-        /// Command menu group (command set GUID).
-        /// </summary>
         public static readonly Guid CommandSet = new Guid("919cd8f4-e812-4b71-9734-0149032c7c8c");
+        private static AsyncPackage _asyncPackage;
 
-        /// <summary>
-        /// VS Package that provides this command, not null.
-        /// </summary>
-        private readonly Package package;
+        public static ToolWindow1Command Instance { get; private set; }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ToolWindow1Command"/> class.
-        /// Adds our command handlers for menu (commands must exist in the command table file)
-        /// </summary>
-        /// <param name="package">Owner package, not null.</param>
-        private ToolWindow1Command(Package package)
+        public static async Task InitializeGregt(AsyncPackage asyncPackage)
         {
-            if (package == null)
+            if (asyncPackage == null)
             {
-                throw new ArgumentNullException("package");
+                throw new ArgumentNullException(nameof(asyncPackage));
             }
+            _asyncPackage = asyncPackage;
 
-            this.package = package;
+            OleMenuCommandService commandService = await asyncPackage.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
+            Instance = new ToolWindow1Command(commandService);
+        }
 
-            OleMenuCommandService commandService = this.ServiceProvider.GetService(typeof(IMenuCommandService)) as OleMenuCommandService;
-            if (commandService != null)
-            {
-                var menuCommandID = new CommandID(CommandSet, CommandId);
-                var menuItem = new MenuCommand(this.ShowToolWindow, menuCommandID);
-                commandService.AddCommand(menuItem);
-            }
+        private ToolWindow1Command(OleMenuCommandService commandService)
+        {
+            var commandId = new CommandID(CommandSet, CommandId);
+            var menuItem = new OleMenuCommand(FindShowToolWindowAsync, commandId);
+            commandService.AddCommand(menuItem);
         }
 
         /// <summary>
-        /// Gets the instance of the command.
+        /// Is hit when user selects Tools > Windows > VS Sports Desk
         /// </summary>
-        public static ToolWindow1Command Instance
+        private void FindShowToolWindowAsync(object sender, EventArgs e)
         {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// Gets the service provider from the owner package.
-        /// </summary>
-        private IServiceProvider ServiceProvider
-        {
-            get
-            {
-                return this.package;
-            }
-        }
-
-        /// <summary>
-        /// Initializes the singleton instance of the command.
-        /// </summary>
-        /// <param name="package">Owner package, not null.</param>
-        public static void Initialize(Package package)
-        {
-            Instance = new ToolWindow1Command(package);
-        }
-
-        /// <summary>
-        /// Shows the tool window when the menu item is clicked.
-        /// </summary>
-        /// <param name="sender">The event sender.</param>
-        /// <param name="e">The event args.</param>
-        private void ShowToolWindow(object sender, EventArgs e)
-        {
-            // Get the instance number 0 of this tool window. This window is single instance so this instance
-            // is actually the only one.
+            // Get the instance number 0 of this tool window. This window is single instance so this instance is actually the only one.
             // The last flag is set to true so that if the tool window does not exists it will be created.
-            ToolWindowPane window = this.package.FindToolWindow(typeof(ToolWindow1), 0, true);
-            if ((null == window) || (null == window.Frame))
-            {
-                throw new NotSupportedException("Cannot create tool window");
-            }
+            //var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane), 0, true);
+            //if (window?.Frame == null)
+            //{
+            //    throw new NotSupportedException("Cannot create tool window");
+            //}
+            //var windowFrame = (IVsWindowFrame)window.Frame;
+            //Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
 
-            IVsWindowFrame windowFrame = (IVsWindowFrame)window.Frame;
-            Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
+            // Get the instance number 0 of this tool window. This window is single instance so this instance is actually the only one.
+            // The last flag is set to true so that if the tool window does not exists it will be created.
+            _asyncPackage.JoinableTaskFactory.RunAsync(async delegate
+            {
+                //var window = await _asyncPackage.ShowToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
+                var window = _asyncPackage.FindToolWindow(typeof(ToolWindow1), 0, true);
+                if (window?.Frame == null)
+                {
+                    throw new NotSupportedException("Cannot create tool window");
+                }
+                await _asyncPackage.JoinableTaskFactory.SwitchToMainThreadAsync();
+                var windowFrame = (IVsWindowFrame)window.Frame;
+                Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
+            });
         }
     }
 }
