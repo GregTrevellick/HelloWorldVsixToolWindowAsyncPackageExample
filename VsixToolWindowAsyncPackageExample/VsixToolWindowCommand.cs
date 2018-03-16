@@ -40,20 +40,10 @@ namespace VsixToolWindowAsyncPackageExample
         {
             // Get the instance number 0 of this tool window. This window is single instance so this instance is actually the only one.
             // The last flag is set to true so that if the tool window does not exists it will be created.
-            //var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane), 0, true);
-            //if (window?.Frame == null)
-            //{
-            //    throw new NotSupportedException("Cannot create tool window");
-            //}
-            //var windowFrame = (IVsWindowFrame)window.Frame;
-            //Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
-
-            // Get the instance number 0 of this tool window. This window is single instance so this instance is actually the only one.
-            // The last flag is set to true so that if the tool window does not exists it will be created.
             _asyncPackage.JoinableTaskFactory.RunAsync(async delegate
             {
                 //var window = await _asyncPackage.ShowToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
-                var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane2), 0, true);
+                var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane), 0, true);
                 if (window?.Frame == null)
                 {
                     throw new NotSupportedException("Cannot create tool window");
