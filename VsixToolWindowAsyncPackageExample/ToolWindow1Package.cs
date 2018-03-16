@@ -5,36 +5,31 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
 
 namespace VsixToolWindowAsyncPackageExample
 {
     #region attributes
-    [Guid(VSPackage1.PackageGuidString)]
+    [Guid(ToolWindow1Package.PackageGuidString)]
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [PackageRegistration(UseManagedResourcesOnly = true)]//, AllowsBackgroundLoading = true)]
     [ProvideAutoLoad(UIContextGuids.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]//UIContextGuids.NoSolution vs VSConstants.UICONTEXT.NoSolution_string
     [ProvideMenuResource("Menus.ctmenu", 1)]//[ProvideMenuResource(1000, 1)]
     //[ProvideOptionPage(typeof(GeneralOptions), Vsix.Name, CommonConstants.CategorySubLevelFootball, 0, 0, true)]
-    [ProvideToolWindow(typeof(ToolWindow1), Style = VsDockStyle.Tabbed, Window = "3ae79031-e1bc-11d0-8f78-00a0c9110057")]
+    [ProvideToolWindow(typeof(VsixToolWindowPane), Style = VsDockStyle.Tabbed, Window = "3ae79031-e1bc-11d0-8f78-00a0c9110057")]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     #endregion
-    public sealed class VSPackage1 : AsyncPackage
+    public sealed partial class ToolWindow1Package : AsyncPackage
     {
         public const string PackageGuidString = "44f7531c-e8ac-4cc8-af51-8580f2bac0ef";
 
-        public VSPackage1()
+        public ToolWindow1Package()
         {
             if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
             {
                 ChaseRating();
             }
         }
-
-        //protected override void Initialize()
-        //{
-        //    base.Initialize();
-        //    ToolWindow1Command.Initialize(this);
-        //}
 
         //this block moved to InitializeToolWindowAsync() where potentially expensive work, preferably done on a background thread where possible.
         //protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
@@ -82,7 +77,7 @@ namespace VsixToolWindowAsyncPackageExample
             //potentially expensive work, preferably done on a background thread where possible.
 
             //await Task.Delay(5000, cancellationToken);
-            await ToolWindow1Command.InitializeGregt(this);
+            await VsixToolWindowCommand.InitializeGregt(this);
 
             #region define actions/funcs for later on
             //VsixToolWindowPane.GetOptionsFromStoreAndMapToInternalFormatMethod =

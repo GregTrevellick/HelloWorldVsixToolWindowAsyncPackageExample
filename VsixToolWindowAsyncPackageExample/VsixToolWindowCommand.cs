@@ -1,18 +1,18 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using Microsoft.VisualStudio.Shell;
+﻿using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using System;
+using System.ComponentModel.Design;
+using Task = System.Threading.Tasks.Task;
 
 namespace VsixToolWindowAsyncPackageExample
 {
-    internal sealed class ToolWindow1Command
+    internal sealed class VsixToolWindowCommand
     {
         public const int CommandId = 0x0100;
         public static readonly Guid CommandSet = new Guid("919cd8f4-e812-4b71-9734-0149032c7c8c");
         private static AsyncPackage _asyncPackage;
 
-        public static ToolWindow1Command Instance { get; private set; }
+        public static VsixToolWindowCommand Instance { get; private set; }
 
         public static async Task InitializeGregt(AsyncPackage asyncPackage)
         {
@@ -23,10 +23,10 @@ namespace VsixToolWindowAsyncPackageExample
             _asyncPackage = asyncPackage;
 
             OleMenuCommandService commandService = await asyncPackage.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-            Instance = new ToolWindow1Command(commandService);
+            Instance = new VsixToolWindowCommand(commandService);
         }
 
-        private ToolWindow1Command(OleMenuCommandService commandService)
+        private VsixToolWindowCommand(OleMenuCommandService commandService)
         {
             var commandId = new CommandID(CommandSet, CommandId);
             var menuItem = new OleMenuCommand(FindShowToolWindowAsync, commandId);
@@ -53,7 +53,7 @@ namespace VsixToolWindowAsyncPackageExample
             _asyncPackage.JoinableTaskFactory.RunAsync(async delegate
             {
                 //var window = await _asyncPackage.ShowToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
-                var window = _asyncPackage.FindToolWindow(typeof(ToolWindow1), 0, true);
+                var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane), 0, true);
                 if (window?.Frame == null)
                 {
                     throw new NotSupportedException("Cannot create tool window");
