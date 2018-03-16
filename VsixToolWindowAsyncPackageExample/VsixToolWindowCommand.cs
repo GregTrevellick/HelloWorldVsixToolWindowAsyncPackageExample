@@ -53,7 +53,7 @@ namespace VsixToolWindowAsyncPackageExample
             _asyncPackage.JoinableTaskFactory.RunAsync(async delegate
             {
                 //var window = await _asyncPackage.ShowToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
-                var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane), 0, true);
+                var window = _asyncPackage.FindToolWindow(typeof(VsixToolWindowPane2), 0, true);
                 if (window?.Frame == null)
                 {
                     throw new NotSupportedException("Cannot create tool window");

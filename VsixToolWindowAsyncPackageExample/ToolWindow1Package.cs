@@ -16,7 +16,7 @@ namespace VsixToolWindowAsyncPackageExample
     [ProvideAutoLoad(UIContextGuids.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]//UIContextGuids.NoSolution vs VSConstants.UICONTEXT.NoSolution_string
     [ProvideMenuResource("Menus.ctmenu", 1)]//[ProvideMenuResource(1000, 1)]
     //[ProvideOptionPage(typeof(GeneralOptions), Vsix.Name, CommonConstants.CategorySubLevelFootball, 0, 0, true)]
-    [ProvideToolWindow(typeof(VsixToolWindowPane), Style = VsDockStyle.Tabbed, Window = "3ae79031-e1bc-11d0-8f78-00a0c9110057")]
+    [ProvideToolWindow(typeof(VsixToolWindowPane2), Style = VsDockStyle.Tabbed, Window = "3ae79031-e1bc-11d0-8f78-00a0c9110057")]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     #endregion
     public sealed partial class ToolWindow1Package : AsyncPackage
@@ -25,10 +25,10 @@ namespace VsixToolWindowAsyncPackageExample
 
         public ToolWindow1Package()
         {
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
-            {
-                ChaseRating();
-            }
+            //if (DateTime.Now.DayOfWeek == DayOfWeek.Monday)
+            //{
+            //    ChaseRating();
+            //}
         }
 
         //this block moved to InitializeToolWindowAsync() where potentially expensive work, preferably done on a background thread where possible.
@@ -64,7 +64,7 @@ namespace VsixToolWindowAsyncPackageExample
 
         public override IVsAsyncToolWindowFactory GetAsyncToolWindowFactory(Guid toolWindowType)
         {
-            if (toolWindowType == typeof(VsixToolWindowPane).GUID)
+            if (toolWindowType == typeof(VsixToolWindowPane2).GUID)
             {
                 return this;
             }
@@ -109,7 +109,7 @@ namespace VsixToolWindowAsyncPackageExample
 
         protected override string GetToolWindowTitle(Type toolWindowType, int id)//gregt - is this ever hit ? it ought to be !  
         {
-            if (toolWindowType == typeof(VsixToolWindowPane))
+            if (toolWindowType == typeof(VsixToolWindowPane2))
             {
                 return "VsixToolWindowPane loading";
             }
@@ -142,11 +142,11 @@ namespace VsixToolWindowAsyncPackageExample
         //    };
         //}
 
-        private void ChaseRating()
-        {
-            //var hiddenChaserOptions = (IRatingDetailsDto)GetDialogPage(typeof(HiddenRatingDetailsDto));
-            //var packageRatingChaser = new PackageRatingChaser();
-            //packageRatingChaser.Hunt(hiddenChaserOptions);
-        }
+        //private void ChaseRating()
+        //{
+        //    var hiddenChaserOptions = (IRatingDetailsDto)GetDialogPage(typeof(HiddenRatingDetailsDto));
+        //    var packageRatingChaser = new PackageRatingChaser();
+        //    packageRatingChaser.Hunt(hiddenChaserOptions);
+        //}
     }
 }
