@@ -42,6 +42,7 @@ namespace VsixToolWindowAsyncPackageExample
             // The last flag is set to true so that if the tool window does not exists it will be created.
             _asyncPackage.JoinableTaskFactory.RunAsync(async delegate
             {
+                //var window = await _asyncPackage.ShowToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
                 var toolWindowPane = await _asyncPackage.FindToolWindowAsync(typeof(VsixToolWindowPane), 0, true, _asyncPackage.DisposalToken);
                 if (toolWindowPane?.Frame == null)
                 {

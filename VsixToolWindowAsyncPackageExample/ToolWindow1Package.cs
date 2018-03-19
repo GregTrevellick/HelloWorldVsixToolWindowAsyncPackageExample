@@ -40,7 +40,7 @@ namespace VsixToolWindowAsyncPackageExample
         {
             //potentially expensive work, preferably done on a background thread where possible.
 
-            //await Task.Delay(5000, cancellationToken);
+            await Task.Delay(30000, cancellationToken);
             await VsixToolWindowCommand.InitializeGregt(this);
 
             return "foo"; // this is passed to the tool window constructor
