@@ -8,7 +8,7 @@
     {
         public ToolWindow1Control()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         /// <summary>
