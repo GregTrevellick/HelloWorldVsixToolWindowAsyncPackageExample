@@ -26,6 +26,12 @@ namespace VsixToolWindowAsyncPackageExample
         {
         }
 
+        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
+        {
+            await base.InitializeAsync(cancellationToken, progress);
+            await VsixToolWindowCommand.InitializeGregt(this);//IT IS CRITICAL TO HAVE THIS HERE AS 'InitializeToolWindowAsync' NEVER GETS INVOKED
+        }
+
         public override IVsAsyncToolWindowFactory GetAsyncToolWindowFactory(Guid toolWindowType)
         {
             if (toolWindowType == typeof(VsixToolWindowPane).GUID)
@@ -39,11 +45,9 @@ namespace VsixToolWindowAsyncPackageExample
         protected override async Task<object> InitializeToolWindowAsync(Type toolWindowType, int id, CancellationToken cancellationToken)
         {
             //potentially expensive work, preferably done on a background thread where possible.
+            await Task.Delay(20000, cancellationToken);
 
-            //await Task.Delay(5000, cancellationToken);
-            await VsixToolWindowCommand.InitializeGregt(this);
-
-            return "foo"; // this is passed to the tool window constructor
+            return ToolWindowCreationContext.Unspecified;
         }
 
         protected override string GetToolWindowTitle(Type toolWindowType, int id)//gregt - is this ever hit ? it ought to be !  
