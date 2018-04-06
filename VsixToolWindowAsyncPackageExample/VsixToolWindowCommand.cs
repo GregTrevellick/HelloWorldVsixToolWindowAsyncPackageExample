@@ -50,7 +50,7 @@ namespace VsixToolWindowAsyncPackageExample
                     throw new NotSupportedException("Cannot create tool window");
                 }
                 await _asyncPackage.JoinableTaskFactory.SwitchToMainThreadAsync();
-                var windowFrame = (IVsWindowFrame)toolWindowPane.Frame;
+                var windowFrame = (IVsWindowFrame)window.Frame;
                 Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure(windowFrame.Show());
             });
         }
