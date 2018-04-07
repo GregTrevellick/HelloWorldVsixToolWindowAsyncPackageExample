@@ -2,7 +2,7 @@
 
 Don't trust this code.
 
-U r warned.
+You have been warned.
 
 ## License
 [Apache 2.0](LICENSE)
