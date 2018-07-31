@@ -1,5 +1,8 @@
 # VsixToolWindowAsyncPackageExample
 
+<!--BadgesSTART-->
+<!--BadgesEND-->
+
 Don't trust this code.
 
 You have been warned.
