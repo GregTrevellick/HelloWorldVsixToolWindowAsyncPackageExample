@@ -4,6 +4,7 @@
 [![Read Me Synchronizer](https://img.shields.io/badge/-powered%20by%20read%20me%20synchronizer-brightgreen.svg)](https://github.com/GregTrevellick/ReadMeSynchronizer)
 <!-- Powered by https://github.com/GregTrevellick/ReadMeSynchronizer -->
 
+**[Subscribe](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/subscription) to receive notificatons.**
 [![BetterCodeHub compliance](https://bettercodehub.com/edge/badge/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample?branch=master)](https://bettercodehub.com/results/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4d1ed9b21d9240cca47e314c1b06edda)](https://www.codacy.com/project/gtrevellick/HelloWorldVsixToolWindowAsyncPackageExample/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample&amp;utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/badge)](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
