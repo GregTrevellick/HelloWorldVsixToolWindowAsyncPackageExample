@@ -27,6 +27,7 @@
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/1fha75b06hpw2lip?svg=true)](https://ci.appveyor.com/project/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![Appveyor unit tests](https://img.shields.io/appveyor/tests/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://ci.appveyor.com/project/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/build/tests)
 [![Azure Build Status](https://gregtrevellick.visualstudio.com/HelloWorldVsixToolWindowAsyncPackageExample/_apis/build/status/HelloWorldVsixToolWindowAsyncPackageExample)](https://gregtrevellick.visualstudio.com/HelloWorldVsixToolWindowAsyncPackageExample/_build/latest?definitionId=26)
+[![Hound](https://img.shields.io/badge/hound_ci-checked-brightgreen.svg)](https://houndci.com/)
 [![Access Lint github](https://img.shields.io/badge/a11y-checked-brightgreen.svg)](https://www.accesslint.com)
 [![ImgBot](https://img.shields.io/badge/images-optimized-brightgreen.svg)](https://imgbot.net/)
 [![Renovate Bot github](https://img.shields.io/badge/renovatebot-checked-brightgreen.svg)](https://renovatebot.com/)
