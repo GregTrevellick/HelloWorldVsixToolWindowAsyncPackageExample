@@ -11,7 +11,7 @@
         <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>ToolWindow1 VsixToolWindowAsyncPackageExample gregt2</ButtonText>
+          <ButtonText>ToolWindow1 VsixToolWindowAsyncPackageExample gregt3</ButtonText>
         </Strings>
       </Button>
     </Buttons>

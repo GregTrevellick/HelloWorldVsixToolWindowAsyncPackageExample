@@ -56,6 +56,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolWindow1Package1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToolWindow1Package.vsct</DependentUpon>
+    </Compile>
     <Compile Include="VsixToolWindowPane.cs" />
     <Compile Include="VsixToolWindowCommand.cs" />
     <Compile Include="ToolWindow1Control.xaml.cs">
@@ -77,6 +82,7 @@
     <VSCTCompile Include="ToolWindow1Package.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <Generator>VsctGenerator</Generator>
+      <LastGenOutput>ToolWindow1Package1.cs</LastGenOutput>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>

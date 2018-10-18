@@ -46,7 +46,7 @@ namespace VsixToolWindowAsyncPackageExample
         protected override async Task<object> InitializeToolWindowAsync(Type toolWindowType, int id, CancellationToken cancellationToken)
         {
             //potentially expensive work, preferably done on a background thread where possible.
-            await Task.Delay(20000, cancellationToken);
+            await Task.Delay(5000, cancellationToken);
 
             return ToolWindowCreationContext.Unspecified;
         }
