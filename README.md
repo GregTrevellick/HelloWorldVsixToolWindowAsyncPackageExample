@@ -5,10 +5,7 @@
 [![Read Me Synchronizer](https://img.shields.io/badge/-powered%20by%20ReadMeSynchronizer-brightgreen.svg)](https://github.com/GregTrevellick/ReadMeSynchronizer)
 [![BetterCodeHub compliance](https://bettercodehub.com/edge/badge/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample?branch=master)](https://bettercodehub.com/results/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4d1ed9b21d9240cca47e314c1b06edda)](https://www.codacy.com/project/gtrevellick/HelloWorldVsixToolWindowAsyncPackageExample/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample&amp;utm_campaign=Badge_Grade_Dashboard)
-
 [![CodeFactor](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/badge)](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
-
-
 [![GitHub top language](https://img.shields.io/github/languages/top/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![Github language count](https://img.shields.io/github/languages/count/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![GitHub issues](https://img.shields.io/github/issues-raw/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/issues)
@@ -33,7 +30,6 @@
 [![Renovate Bot github](https://img.shields.io/badge/renovatebot-checked-brightgreen.svg)](https://renovatebot.com/)
 [![Charity Ware](https://img.shields.io/badge/charity%20ware-thank%20you-brightgreen.svg)](https://github.com/GregTrevellick/MiscellaneousArtefacts/wiki/Charity-Ware)
 [![License](https://img.shields.io/github/license/gittools/gitlink.svg)](/LICENSE.txt)
-
 [Subscribe](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/subscription) to receive notificatons.
 
 <!--BadgesEND-->
