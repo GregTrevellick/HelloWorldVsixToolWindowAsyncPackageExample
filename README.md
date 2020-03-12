@@ -9,6 +9,9 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/badge)](https://www.codefactor.io/repository/github/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 <!-- no md -->
 <!-- no md -->
+<!-- no md -->
+<!-- no md -->
+<!-- no md -->
 [![GitHub top language](https://img.shields.io/github/languages/top/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![Github language count](https://img.shields.io/github/languages/count/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample)
 [![GitHub issues](https://img.shields.io/github/issues-raw/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample.svg)](https://github.com/GregTrevellick/HelloWorldVsixToolWindowAsyncPackageExample/issues)
